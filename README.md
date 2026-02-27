@@ -168,3 +168,47 @@ plot(tiempos, voltajes,
     size = (800, 500)
 )
 ```
+
+## 4. Discussion of Dynamics
+
+The simulation characterises the typical behaviour of a **LIF neurone** under constant current injection.
+
+### Initial State
+Initially, the voltage resides at the resting potential (**-70 mV**). Upon application of current (**I = 2.0**), the voltage begins to ascend exponentially towards the equilibrium potential (approximately **-50 mV**), passing intermediate values such as -69, -68, and so forth. 
+
+> This phase represents the **integration of input signals**, where the membrane behaves analogously to a charging capacitor.
+
+### Leakage Effect
+Concurrently, the leak term `-(V - V_rest)` opposes this rise, pulling the voltage back towards the resting state and producing an **exponential trajectory** rather than a linear ramp.
+
+### Firing Mechanism
+Since the input current is sufficient to overcome leakage (with the equilibrium potential above threshold), the voltage reaches and exceeds the threshold (**-55 mV**). At this juncture, the model registers a **firing event**, visualised as a brief spike to **+30 mV**, representing the overshoot of a biological action potential.
+
+The membrane potential is immediately reset to **-70 mV**, simulating the repolarisation phase. This cycle repeats, generating a **regular spike train** whose frequency depends on the magnitude of the input current **I**.
+
+### Analytical Firing Rate
+
+Under steady-state conditions, the firing rate can be approximated analytically as:
+
+$$
+f = \frac{1}{\tau \ln \left( \frac{R I - (V_{\text{threshold}} - V_{\text{rest}})} {R I - (V_{\text{reset}} - V_{\text{rest}})} \right)}
+$$
+
+For **I = 2.0**, the inter-spike interval is approximately **20–25 ms**, corresponding to a firing rate of roughly **40–50 Hz**.
+
+## 5. Conclusion
+
+The **Leaky Integrate-and-Fire model** provides a computationally efficient framework for simulating neuronal activity. 
+
+### Key Features
+
+- Abstracts the neurone into a **leaky capacitor circuit**
+- Captures essential phenomena:
+  - Integration of inputs
+  - Leakage currents
+  - Threshold-based firing
+  - Repetitive spiking under suprathreshold inputs
+
+### Implementation Highlights
+
+The implementation in **Julia**, enhanced with explicit spike visualisation, demonstrates that complex neuronal dynamics can be reproduced using **concise numerical methods**.
