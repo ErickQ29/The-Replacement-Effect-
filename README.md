@@ -169,6 +169,8 @@ plot(tiempos, voltajes,
 )
 ```
 
+![Image Result](aj.png)
+
 ## 4. Discussion of Dynamics
 
 The simulation characterises the typical behaviour of a **LIF neurone** under constant current injection.
