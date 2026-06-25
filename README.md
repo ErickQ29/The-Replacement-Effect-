@@ -198,7 +198,7 @@ $$
 
 For **I = 2.0**, the inter-spike interval is approximately **20–25 ms**, corresponding to a firing rate of roughly **40–50 Hz**.
 
-## 5. Conclusion
+## 5. Conclusion 
 
 The **Leaky Integrate-and-Fire model** provides a computationally efficient framework for simulating neuronal activity. 
 
